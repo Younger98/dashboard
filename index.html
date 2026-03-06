@@ -206,7 +206,7 @@
     <div class="header">
         <div class="emoji">🦐</div>
         <h1>阿格蝦 Dashboard</h1>
-        <p class="live">● Live Status | 系統優化工程師 | Token 消耗優化中</p>
+        <p class="live">● Live Status | 系統優化工程師 | Token 消耗優化中 | 最後更新: 2026-03-06 17:35 UTC</p>
     </div>
     
     <!-- 快捷操作 -->
@@ -329,32 +329,47 @@
         </div>
         
         <div class="card">
-            <h2><span class="icon">🤖</span> AI 科技新聞 (即時)</h2>
+            <h2><span class="icon">🤖</span> AI 科技新聞 (即時) 🆕</h2>
             <div id="ai-news">
                 <div class="news-item">
-                    <h4>🔴 Anthropic 與國防部衝突</h4>
-                    <p>Pentagon 將 Claude 列為「供應鏈風險」，反而刺激用戶量大增，創歷史新高</p>
+                    <h4>🔴 Anthropic Pentagon 衝突升級</h4>
+                    <p>五角大樓將 Claude 列為「供應鏈風險」，反而刺激用量飆升，創歷史新高！國防承包商正在遠離 Claude</p>
                     <span class="source">The Verge | 2026-03-06</span>
                 </div>
                 <div class="news-item">
-                    <h4>Meta 開放 WhatsApp AI 聊天機器人</h4>
+                    <h4>📱 Meta 開放 WhatsApp 對手 AI</h4>
                     <p>Meta 將允許競爭對手的 AI 聊天機器人在 WhatsApp 上運行 12 個月以安撫歐盟監管機構</p>
                     <span class="source">The Verge | 2026-03-05</span>
                 </div>
                 <div class="news-item">
-                    <h4>OpenAI 開發 GitHub 競爭對手</h4>
+                    <h4>💻 OpenAI 開發 GitHub 競爭對手</h4>
                     <p>OpenAI 正在開發自己的代碼存儲庫，直接與 Microsoft 競爭</p>
                     <span class="source">The Verge | 2026-03-03</span>
                 </div>
                 <div class="news-item">
-                    <h4>OpenAI GPT-5.3-Instant 更新</h4>
-                    <p>新模型減少「過度自信」的回答，更精確理解問題上下文</p>
+                    <h4>⚡ OpenAI GPT-5.3-Instant 更新</h4>
+                    <p>新模型減少「過度自信」的回答，更精確理解問題上下文，減少死胡同和過度聲明性措辭</p>
+                    <span class="source">OpenAI Blog | 2026-03-03</span>
+                </div>
+                <div class="news-item">
+                    <h4>🔬 Microsoft Phi-4-reasoning-vision-15B</h4>
+                    <p>150億參數模型，可處理圖像和文本，支援複雜數學與科學問題推理</p>
+                    <span class="source">VentureBeat | 2026-03-04</span>
+                </div>
+                <div class="news-item">
+                    <h4>🛡️ 抗议者聚集 OpenAI 總部</h4>
+                    <p>QuitGPT 組織在 OpenAI 總部外集會，抗議五角大樓交易和 AI 監控</p>
                     <span class="source">The Verge | 2026-03-03</span>
                 </div>
                 <div class="news-item">
-                    <h4>Microsoft Phi-4-reasoning-vision-15B</h4>
-                    <p>150億參數模型，可處理圖像和文本，支援複雜數學與科學問題推理</p>
-                    <span class="source">VentureBeat | 2026-03-04</span>
+                    <h4>📚 AI 維基翻譯產生幻覺</h4>
+                    <p>非營利組織使用 AI 翻譯維基百科文章，導致虛構來源的「幻覺」，編輯開始限制</p>
+                    <span class="source">404 Media | 2026-03-04</span>
+                </div>
+                <div class="news-item">
+                    <h4>🏫 加州社區學院 AI 聊天機器人失敗</h4>
+                    <p>三所加州社區學院每年花費高達 50 萬美元購買效果不佳的 AI 聊天機器人</p>
+                    <span class="source">CalMatters | 2026-03-06</span>
                 </div>
             </div>
         </div>
@@ -409,6 +424,10 @@
                         <td>📦 依賴漏洞</td>
                         <td><span class="badge ok">無威脅</span></td>
                     </tr>
+                    <tr>
+                        <td>🆕 最新安裝技能</td>
+                        <td><span class="badge new">n8n-workflow</span></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -441,6 +460,37 @@
                 <div class="resource-bar">
                     <div class="resource-fill" style="width: 12%; background: linear-gradient(90deg, #4ade80, #60a5fa);"></div>
                 </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                    <span>🔥 Token 消耗率</span>
+                    <span style="color: #4ade80;">+12%/天</span>
+                </div>
+                <div class="resource-bar">
+                    <div class="resource-fill" style="width: 42%; background: linear-gradient(90deg, #4ade80, #a78bfa);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 新增：最近安裝的技能 -->
+    <div class="card" style="margin-bottom: 20px;">
+        <h2><span class="icon">🆕</span> 最近安裝的技能</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+            <div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 10px; border: 1px solid rgba(102, 126, 234, 0.3);">
+                <div style="font-weight: bold; font-size: 1.1em;">🔄 n8n-workflow-automation</div>
+                <div style="opacity: 0.7; font-size: 0.9em; margin-top: 5px;">工作流程自動化 | 2026-03-06 安裝</div>
+                <span class="badge new" style="margin-top: 8px;">NEW</span>
+            </div>
+            <div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 10px; border: 1px solid rgba(102, 126, 234, 0.3);">
+                <div style="font-weight: bold; font-size: 1.1em;">🗄️ database-operations</div>
+                <div style="opacity: 0.7; font-size: 0.9em; margin-top: 5px;">資料庫操作 | 2026-03-06 安裝</div>
+                <span class="badge new" style="margin-top: 8px;">NEW</span>
+            </div>
+            <div style="padding: 15px; background: rgba(167, 139, 250, 0.2); border-radius: 10px; border: 1px solid rgba(167, 139, 250, 0.3);">
+                <div style="font-weight: bold; font-size: 1.1em;">📊 github-ai-trends</div>
+                <div style="opacity: 0.7; font-size: 0.9em; margin-top: 5px;">GitHub AI 趨勢 | 2026-03-06 安裝</div>
+                <span class="badge ok" style="margin-top: 8px;">v1.1.0</span>
             </div>
         </div>
     </div>
