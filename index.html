@@ -121,7 +121,10 @@
     <div class="card" style="margin-bottom: 20px; border: 2px solid rgba(167, 139, 250, 0.3);">
         <h2><span class="icon">🤖</span> 🤩 AI 科技頭條 (即時更新)</h2>
         <div id="ai-news">
+            <div class="news-item"><h4>🚀 Claude on Mars！</h4><p>NASA 毅力號火星車在 Claude AI 輔助下行駛 400 公尺，實現人類首次 AI 輔助火星駕駛！</p><span class="source">Anthropic/NASA | 2026-01-30</span></div>
+            <div class="news-item"><h4>⚡ Claude Sonnet 4.6 發布</h4><p>最新版本提供前沿性能的編碼、代理和專業工作處理能力</p><span class="source">Anthropic | 2026-02-17</span></div>
             <div class="news-item"><h4>🛡️ Anthropic 紅隊強化 Firefox 資安</h4><p>Claude Opus 4.6 發現 22 個漏洞，其中 14 個為高嚴重性，約佔 Firefox 2025 年修復的所有高嚴重性漏洞的 1/5！</p><span class="source">Anthropic/Mozilla | 2026-03-06</span></div>
+</div>
             <div class="news-item"><h4>📊 Tech 就業比 2008/2020 衰退更嚴重</h4><p>科技業就業目前顯著差於 2008 年或 2020 年衰退時期，創歷史新低！</p><span class="source">Hacker News (551 points) | 2026-03-06</span></div>
             <div class="news-item"><h4>📈 Anthropic 用戶量大增</h4><p>Pentagon 將 Claude 列為「供應鏈風險」反而刺激用量飆升，創歷史新高！</p><span class="source">The Verge | 2026-03-06</span></div>
             <div class="news-item"><h4>📱 Meta 開放 WhatsApp 對手 AI</h4><p>Meta 將允許競爭對手的 AI 聊天機器人在 WhatsApp 上運行 12 個月</p><span class="source">The Verge | 2026-03-06</span></div>
@@ -150,7 +153,7 @@
         function generateMockData() {
             const agents = [{ id: 'main', name: '阿格蝦', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'coder', name: 'Coder', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'qa', name: 'QA', model: 'MiniMax-M2.1', status: 'ok' },{ id: 'devops', name: 'DevOps', model: 'MiniMax-M2.1', status: 'wait' },{ id: 'researcher', name: 'Researcher', model: 'MiniMax-M2.5', status: 'ok' }];
             const cronJobs = [{ name: 'hourly-todo-report', nextRun: '2026-03-06 14:00', status: 'ok' },{ name: 'hourly-system-optimizer', nextRun: '2026-03-06 19:30', status: 'ok' },{ name: 'daily-moltbook-explore', nextRun: '2026-03-07 09:00', status: 'ok' }];
-            const skills = [{ name: 'twitter-post', version: '1.0.0', status: 'new' },{ name: 'data-visualization-2', version: '0.1.5', status: 'new' },{ name: 'n8n-workflow-automation', version: '1.0.0', status: 'ok' },{ name: 'github-ai-trends', version: '1.1.0', status: 'ok' },{ name: 'baidu-hot-cn', version: '1.0.0', status: 'ok' },{ name: 'news-headlines', version: '1.0.1', status: 'ok' },{ name: 'git', version: '1.0.7', status: 'ok' },{ name: 'docker', version: '1.0.3', status: 'ok' },{ name: 'kubernetes', version: '1.0.0', status: 'ok' },{ name: 'multi-agent-collaboration', version: '1.4.0', status: 'ok' }];
+            const skills = [{ name: 'ai-news-research', version: '1.0.0', status: 'new' },{ name: 'data-visualization-2', version: '0.1.5', status: 'new' },{ name: 'n8n-workflow-automation', version: '1.0.0', status: 'ok' },{ name: 'github-ai-trends', version: '1.1.0', status: 'ok' },{ name: 'baidu-hot-cn', version: '1.0.0', status: 'ok' },{ name: 'news-headlines', version: '1.0.1', status: 'ok' },{ name: 'git', version: '1.0.7', status: 'ok' },{ name: 'docker', version: '1.0.3', status: 'ok' },{ name: 'kubernetes', version: '1.0.0', status: 'ok' },{ name: 'multi-agent-collaboration', version: '1.4.0', status: 'ok' }];
             const commands = [{ time: '19:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '13:00', type: 'cron', content: '待辦清單回報', status: 'ok' },{ time: '11:38', type: 'user', content: '建立 Dashboard', status: 'ok' },{ time: '昨天', type: 'user', content: 'Moltbook 發文', status: 'ok' }];
             const activities = [{ time: '19:30', text: '執行系統優化任務', type: 'success' },{ time: '19:31', text: '更新 twitter-post 技能', type: 'success' },{ time: '12:32', text: '安裝新技能', type: 'success' },{ time: '11:38', text: '建立 Dashboard 功能', type: 'success' }];
             const modelStats = [{ name: 'MiniMax-M2.5', count: 168, tokens: '2.6M' },{ name: 'MiniMax-M2.1', count: 95, tokens: '1.2M' }];
