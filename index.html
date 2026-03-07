@@ -142,7 +142,7 @@
     <div class="grid">
         <div class="card"><h2><span class="icon">🤖</span> Agent 狀態</h2><table id="agents-table"><thead><tr><th>Agent</th><th>Model</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
         <div class="card"><h2><span class="icon">⏰</span> Cron Jobs</h2><table id="cron-table"><thead><tr><th>名稱</th><th>下次執行</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
-        <div class="card"><h2><span class="icon">📦</span> 已安裝技能 (33個)</h2><div id="skills-list" style="max-height: 300px; overflow-y: auto;"></div></div>
+        <div class="card"><h2><span class="icon">📦</span> 已安裝技能 (34個)</h2><div id="skills-list" style="max-height: 300px; overflow-y: auto;"></div></div>
         <div class="card"><h2><span class="icon">🧠</span> 系統優化建議</h2><div class="suggestion-card"><h4>⚡ 技能更新可用</h4><p>twitter-post 已更新至 1.0.0 版本</p></div><div class="suggestion-card"><h4>📦 新技能可用</h4><p>嘗試安裝 ai-search 或 n8n-workflow-automation</p></div><div class="suggestion-card"><h4>🔧 代碼優化</h4><p>發現 3 個技能有本地修改，建議同步遠端</p></div></div>
     </div>
     <div class="grid">
@@ -155,6 +155,7 @@
         <div class="card"><h2><span class="icon">📈</span> 系統健康指標</h2><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>🚀 API 響應</span><span style="color: #4ade80;">45ms</span></div><div class="resource-bar"><div class="resource-fill cpu" style="width: 15%"></div></div></div><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>💾 對話歷史</span><span style="color: #60a5fa;">2.3MB</span></div><div class="resource-bar"><div class="resource-fill mem" style="width: 23%"></div></div></div><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>🔥 Token 消耗</span><span style="color: #4ade80;">+12%/天</span></div><div class="resource-bar"><div class="token-fill" style="width: 42%"></div></div></div></div>
     </div>
     <div class="card" style="margin-bottom: 20px;"><h2><span class="icon">🆕</span> 最近安裝的技能</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px;"><div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🛡️ twitter-post</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">2026-03-06 更新</div><span class="badge new" style="margin-top: 8px;">v1.0.0</span></div><div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 12px;"><div style="font-weight: bold;">📈 data-visualization-2</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">數據視覺化</div><span class="badge new" style="margin-top: 8px;">NEW</span></div><div style="padding: 15px; background: rgba(167, 139, 250, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🔄 n8n-workflow</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">工作流自動化</div><span class="badge ok" style="margin-top: 8px;">v1.0.0</span></div></div></div>
+<div style="padding: 15px; background: rgba(167, 139, 250, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🎯 focus-deep-work</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">深度工作專注</div><span class="badge new" style="margin-top: 8px;">NEW</span></div>
     <div class="card"><h2><span class="icon">🔧</span> 指令處理紀錄</h2><table id="commands-table"><thead><tr><th>時間</th><th>類型</th><th>內容</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
     <div style="text-align: center;"><button class="refresh-btn" onclick="refreshAll()">🔄 重新整理所有數據</button></div>
     <div class="footer"><p>🦐 阿格蝦 Dashboard | 系統優化工程師 | Token 消耗優化中 ⚡</p><p style="margin-top: 10px;">Build: 2026-03-07 09:30 | Skills: 32 | 模型: MiniMax-M2.5</p></div>
@@ -162,7 +163,8 @@
         function generateMockData() {
             const agents = [{ id: 'main', name: '阿格蝦', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'coder', name: 'Coder', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'qa', name: 'QA', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'devops', name: 'DevOps', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'researcher', name: 'Researcher', model: 'MiniMax-M2.5', status: 'ok' }];
             const cronJobs = [{ name: 'hourly-todo-report', nextRun: '2026-03-06 14:00', status: 'ok' },{ name: 'hourly-system-optimizer', nextRun: '2026-03-07 05:30', status: 'ok' },{ name: 'daily-moltbook-explore', nextRun: '2026-03-07 09:00', status: 'ok' }];
-            const skills = [{ name: 'ai-news-research', version: '1.0.0', status: 'new' },{ name: 'data-visualization-2', version: '0.1.5', status: 'new' },{ name: 'n8n-workflow-automation', version: '1.0.0', status: 'ok' },{ name: 'github-ai-trends', version: '1.1.0', status: 'ok' },{ name: 'baidu-hot-cn', version: '1.0.0', status: 'ok' },{ name: 'news-headlines', version: '1.0.1', status: 'ok' },{ name: 'git', version: '1.0.7', status: 'ok' },{ name: 'docker', version: '1.0.3', status: 'ok' },{ name: 'kubernetes', version: '1.0.0', status: 'ok' },{ name: 'multi-agent-collaboration', version: '1.4.0', status: 'ok' }];
+            const skills = [{ name: 'ai-news-research', version: '1.0.0', status: 'new' },{ name: 'data-visualization-2', version: '0.1.5', status: 'new' },{ name: 'n8n-workflow-automation', version: '1.0.0', status: 'ok' },{ name: 'github-ai-trends', version: '1.1.0', status: 'ok' },{ name: 'baidu-hot-cn', version: '1.0.0', status: 'ok' },{ name: 'news-headlines', version: '1.0.1', status: 'ok' },{ name: 'git', version: '1.0.7', status: 'ok' },{ name: 'docker', version: '1.0.3', status: 'ok' },{ name: 'kubernetes', version: '1.0.0', status: 'ok' },{ name: 'focus-deep-work', version: '1.0.0', status: 'new' },
+            { name: 'multi-agent-collaboration', version: '1.4.0', status: 'ok' }];
             const commands = [{ time: '05:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '19:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '13:00', type: 'cron', content: '待辦清單回報', status: 'ok' },{ time: '11:38', type: 'user', content: '建立 Dashboard', status: 'ok' }];
             const activities = [{ time: '05:30', text: '執行系統優化任務 - 更新 AI 頭條', type: 'success' },{ time: '19:30', text: '執行系統優化任務', type: 'success' },{ time: '19:31', text: '更新 twitter-post 技能', type: 'success' },{ time: '12:32', text: '安裝新技能', type: 'success' }];
             const modelStats = [{ name: 'MiniMax-M2.5', count: 168, tokens: '2.6M' },{ name: 'MiniMax-M2.1', count: 95, tokens: '1.2M' }];
@@ -183,7 +185,7 @@
         function renderData(data) {
             document.getElementById('agent-count').textContent = data.agents.length;
             document.getElementById('cron-count').textContent = data.cronJobs.length;
-            document.getElementById('skill-count').textContent = '33';
+            document.getElementById('skill-count').textContent = '34';
             document.getElementById('uptime').textContent = '2d';
             document.getElementById('token-usage').textContent = '+12%';
             document.getElementById('timestamp').textContent = new Date().toLocaleString('zh-TW');
