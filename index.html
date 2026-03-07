@@ -135,6 +135,7 @@
     </div>
     <div class="grid">
         <div class="card"><h2><span class="icon">📊</span> Model 使用統計</h2><table id="model-table"><thead><tr><th>Model</th><th>使用次數</th><th>Tokens</th></tr></thead><tbody></tbody></table></div>
+        <div class="card"><h2><span class="icon">🔥</span> Agent Token 消耗</h2><table id="agent-token-table"><thead><tr><th>Agent</th><th>Tokens</th><th>佔比</th></tr></thead><tbody></tbody></table><div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; text-align: center;"><strong>📈 總消耗</strong><span style="margin-left: 10px; color: #4ade80; font-size: 1.2em;" id="total-tokens">-</span></div></div>
         <div class="card"><h2><span class="icon">📜</span> 最近活動</h2><div id="activity-log"></div></div>
     </div>
     <div class="grid">
@@ -153,11 +154,19 @@
             const commands = [{ time: '19:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '13:00', type: 'cron', content: '待辦清單回報', status: 'ok' },{ time: '11:38', type: 'user', content: '建立 Dashboard', status: 'ok' },{ time: '昨天', type: 'user', content: 'Moltbook 發文', status: 'ok' }];
             const activities = [{ time: '19:30', text: '執行系統優化任務', type: 'success' },{ time: '19:31', text: '更新 twitter-post 技能', type: 'success' },{ time: '12:32', text: '安裝新技能', type: 'success' },{ time: '11:38', text: '建立 Dashboard 功能', type: 'success' }];
             const modelStats = [{ name: 'MiniMax-M2.5', count: 168, tokens: '2.6M' },{ name: 'MiniMax-M2.1', count: 95, tokens: '1.2M' }];
+            const agentTokenStats = [
+                { name: '阿格蝦 (main)', tokens: '1.2M', percentage: '35%' },
+                { name: 'Coder', tokens: '856K', percentage: '25%' },
+                { name: 'QA', tokens: '512K', percentage: '15%' },
+                { name: 'DevOps', tokens: '342K', percentage: '10%' },
+                { name: 'Researcher', tokens: '512K', percentage: '15%' }
+            ];
+            const totalTokens = '3.4M';
             const cpu = Math.floor(Math.random() * 40) + 20;
             const mem = Math.floor(Math.random() * 30) + 45;
             const disk = 35 + Math.floor(Math.random() * 15);
             const network = Math.floor(Math.random() * 60) + 20;
-            return { agents, cronJobs, skills, commands, activities, modelStats, cpu, mem, disk, network };
+            return { agents, cronJobs, skills, commands, activities, modelStats, agentTokenStats, totalTokens, cpu, mem, disk, network };
         }
         function renderAgents(agents) { document.querySelector('#agents-table tbody').innerHTML = agents.map(a => `<tr><td>${a.name}</td><td><span class="badge run">${a.model}</span></td><td><span class="badge ${a.status}">${a.status === 'ok' ? '正常' : '等待'}</span></td></tr>`).join(''); document.getElementById('agent-count').textContent = agents.length; }
         function renderCron(jobs) { document.querySelector('#cron-table tbody').innerHTML = jobs.map(j => `<tr><td>${j.name}</td><td>${j.nextRun}</td><td><span class="badge ok">正常</span></td></tr>`).join(''); document.getElementById('cron-count').textContent = jobs.length; }
@@ -165,11 +174,12 @@
         function renderCommands(commands) { document.querySelector('#commands-table tbody').innerHTML = commands.map(c => `<tr><td class="timestamp">${c.time}</td><td><span class="badge run">${c.type}</span></td><td>${c.content}</td><td><span class="badge ok">${c.status}</span></td></tr>`).join(''); }
         function renderActivities(activities) { document.getElementById('activity-log').innerHTML = activities.map(a => `<div class="log-entry ${a.type}"><span class="timestamp">${a.time}</span> ${a.text}</div>`).join(''); }
         function renderModels(models) { document.querySelector('#model-table tbody').innerHTML = models.map(m => `<tr><td><span class="badge run">${m.name}</span></td><td>${m.count}</td><td>${m.tokens}</td></tr>`).join(''); }
+        function renderAgentTokens(agentTokens) { document.querySelector('#agent-token-table tbody').innerHTML = agentTokens.map(a => `<tr><td>${a.name}</td><td style="color: #4ade80;">${a.tokens}</td><td>${a.percentage}</td></tr>`).join(''); document.getElementById('total-tokens').textContent = data.totalTokens; }
         function renderResources(cpu, mem, disk, network) { document.getElementById('cpu-val').textContent = cpu + '%'; document.getElementById('mem-val').textContent = mem + '%'; document.getElementById('disk-val').textContent = disk + '%'; document.getElementById('net-val').textContent = network + ' Mbps'; document.getElementById('cpu-bar').style.width = cpu + '%'; document.getElementById('mem-bar').style.width = mem + '%'; document.getElementById('disk-bar').style.width = disk + '%'; document.getElementById('net-bar').style.width = network + '%'; }
         function updateTime() { const now = new Date(); document.getElementById('timestamp').textContent = now.toLocaleString('zh-TW'); const startTime = new Date('2026-03-01T00:00:00Z'); const days = Math.floor((now - startTime) / (1000 * 60 * 60 * 24)); document.getElementById('uptime').textContent = days + ' 天'; document.getElementById('token-usage').textContent = '1.2M'; }
         function openclawCmd(cmd) { alert('指令: ' + cmd + '\n(實際實現需透過 OpenClaw API)'); }
         function optimize() { alert('⚡ 執行系統優化中...\n\n- 檢查技能更新\n- 分析代碼改進\n- 優化 Token 消耗'); }
-        function refreshAll() { const data = generateMockData(); renderAgents(data.agents); renderCron(data.cronJobs); renderSkills(data.skills); renderCommands(data.commands); renderActivities(data.activities); renderModels(data.modelStats); renderResources(data.cpu, data.mem, data.disk, data.network); updateTime(); }
+        function refreshAll() { const data = generateMockData(); renderAgents(data.agents); renderCron(data.cronJobs); renderSkills(data.skills); renderCommands(data.commands); renderActivities(data.activities); renderModels(data.modelStats); renderAgentTokens(data.agentTokenStats); renderResources(data.cpu, data.mem, data.disk, data.network); updateTime(); }
         refreshAll();
         setInterval(refreshAll, 30000);
     </script>
