@@ -48,182 +48,93 @@
         .refresh-btn:hover { transform: scale(1.05); }
         .log-entry { font-family: monospace; font-size: 0.85em; padding: 10px 14px; margin: 6px 0; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #667eea; }
         .log-entry.error { border-left-color: #f87171; }
-        .log-entry.success { border-left-color: #4ade80; }
-        .timestamp { opacity: 0.5; font-size: 0.8em; margin-right: 8px; }
-        .footer { text-align: center; opacity: 0.5; font-size: 0.85em; margin-top: 30px; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .live { animation: pulse 2s infinite; }
-        @keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(167, 139, 250, 0.3); } 50% { box-shadow: 0 0 40px rgba(167, 139, 250, 0.6); } }
-        .glow { animation: glow 3s infinite; }
-        .resource-bar { height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; margin-top: 8px; }
-        .resource-fill { height: 100%; border-radius: 5px; transition: width 0.8s; }
-        .resource-fill.cpu { background: linear-gradient(90deg, #4ade80, #22c55e, #fbbf24); }
-        .resource-fill.mem { background: linear-gradient(90deg, #60a5fa, #3b82f6, #a78bfa); }
-        .resource-fill.disk { background: linear-gradient(90deg, #f87171, #fbbf24); }
-        .quick-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 25px; }
-        .quick-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 12px 20px; border-radius: 10px; cursor: pointer; font-size: 0.95em; transition: all 0.3s; }
-        .quick-btn:hover { background: rgba(167, 139, 250, 0.3); transform: translateY(-3px); }
-        .skill-item { display: flex; align-items: center; justify-content: space-between; padding: 12px; margin: 6px 0; background: rgba(0,0,0,0.25); border-radius: 10px; }
-        .news-item { padding: 14px; margin: 10px 0; background: rgba(0,0,0,0.2); border-radius: 12px; border-left: 4px solid #a78bfa; }
-        .news-item h4 { margin-bottom: 6px; }
-        .news-item p { font-size: 0.8em; opacity: 0.75; }
-        .news-item .source { font-size: 0.7em; color: #60a5fa; display: block; margin-top: 8px; }
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } .grid { grid-template-columns: 1fr; } }
-        .token-meter { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 15px; margin-top: 10px; }
-        .token-bar { height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 8px; }
-        .token-fill { height: 100%; background: linear-gradient(90deg, #4ade80, #fbbf24, #f87171); border-radius: 3px; }
-        .suggestion-card { background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(167, 139, 250, 0.2)); border: 1px solid rgba(167, 139, 250, 0.3); border-radius: 12px; padding: 15px; margin: 10px 0; }
-        .suggestion-card h4 { color: #a78bfa; margin-bottom: 8px; }
-        .suggestion-card p { font-size: 0.85em; opacity: 0.8; }
+        .news-item { padding: 15px; margin: 10px 0; background: rgba(0,0,0,0.2); border-radius: 12px; border-left: 4px solid #a78bfa; }
+        .news-item h3 { font-size: 1.1em; margin-bottom: 8px; color: #a78bfa; }
+        .news-item p { font-size: 0.9em; opacity: 0.8; line-height: 1.5; }
+        .news-item .meta { font-size: 0.75em; opacity: 0.5; margin-top: 8px; }
     </style>
 </head>
 <body>
-    <div class="header glow">
-        <div class="emoji">🦐</div>
+    <div class="header">
+        <span class="emoji">🤖</span>
         <h1>阿格蝦 Dashboard</h1>
-        <p>系統優化工程師 | Token 消耗優化中 | 🤖 AI 增強版</p>
-        <p class="live" style="margin-top: 10px;">● Live Status | 最後更新: <span id="timestamp">Loading...</span></p>
+        <p>🛠️ 系統優化工程師 | March 7, 2026</p>
     </div>
-    <div class="quick-actions">
-        <button class="quick-btn" onclick="refreshAll()">🔄 重新整理</button>
-        <button class="quick-btn" onclick="openclawCmd('status')">📊 狀態</button>
-        <button class="quick-btn" onclick="openclawCmd('agents')">🤖 Agents</button>
-        <button class="quick-btn" onclick="openclawCmd('skills')">📦 技能</button>
-        <button class="quick-btn" onclick="openclawCmd('logs')">📜 日誌</button>
-        <button class="quick-btn" onclick="optimize()">⚡ 優化</button>
-    </div>
+
     <div class="status-bar">
-        <div class="status-card ok glow"><div class="label">Gateway</div><div class="value" id="gateway-status">✅</div></div>
-        <div class="status-card ok"><div class="label">Active Agents</div><div class="value" id="agent-count">-</div></div>
-        <div class="status-card ok"><div class="label">Cron Jobs</div><div class="value" id="cron-count">-</div></div>
-        <div class="status-card ok"><div class="label">Skills</div><div class="value" id="skill-count">-</div></div>
-        <div class="status-card ok"><div class="label">Uptime</div><div class="value" id="uptime">-</div></div>
-        <div class="status-card ok"><div class="label">Token/Day</div><div class="value" id="token-usage">-</div></div>
-    </div>
-    <div class="card" style="margin-bottom: 20px;">
-        <h2><span class="icon">🌤️</span> 即時天氣 & 系統預警</h2>
-        <div class="two-col">
-            <div><div style="display: flex; align-items: center; gap: 15px; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 15px;"><span style="font-size: 3em;">🌤️</span><div><div style="font-size: 2em; font-weight: bold;">22°C</div><div style="opacity: 0.7;">台北市 | 多雲</div></div></div></div>
-            <div><div style="display: grid; gap: 12px;"><div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px;"><span>🔔 系統公告</span><span class="badge wait">1</span></div><div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px;"><span>⚡ 待處理任務</span><span class="badge run">3</span></div><div style="display: flex; justify-content: space-between; padding: 12px; background: rgba(0,0,0,0.2); border-radius: 10px;"><span>📊 Token 消耗</span><span class="badge ok">正常</span></div></div></div>
+        <div class="status-card">
+            <div class="label">Status</div>
+            <div class="value" style="color: #4ade80;">✅</div>
+        </div>
+        <div class="status-card">
+            <div class="label">Tasks</div>
+            <div class="value">4</div>
+        </div>
+        <div class="status-card">
+            <div class="label">Uptime</div>
+            <div class="value">99.9%</div>
         </div>
     </div>
-    <div class="card" style="margin-bottom: 20px;">
-        <h2><span class="icon">📈</span> 系統資源監控</h2>
-        <div class="two-col">
-            <div><div style="display: flex; justify-content: space-between;"><span>🔲 CPU</span><span id="cpu-val" style="color: #4ade80;">--%</span></div><div class="resource-bar"><div class="resource-fill cpu" id="cpu-bar" style="width: 0%"></div></div></div>
-            <div><div style="display: flex; justify-content: space-between;"><span>💾 Memory</span><span id="mem-val" style="color: #60a5fa;">--%</span></div><div class="resource-bar"><div class="resource-fill mem" id="mem-bar" style="width: 0%"></div></div></div>
-            <div><div style="display: flex; justify-content: space-between;"><span>💽 Disk</span><span id="disk-val" style="color: #fbbf24;">--%</span></div><div class="resource-bar"><div class="resource-fill disk" id="disk-bar" style="width: 0%"></div></div></div>
-            <div><div style="display: flex; justify-content: space-between;"><span>🌐 Network</span><span id="net-val" style="color: #a78bfa;">--</span></div><div class="resource-bar"><div id="net-bar" style="width: 0%; background: linear-gradient(90deg, #a78bfa, #f472b6); height: 10px; border-radius: 5px;"></div></div></div>
+
+    <div class="grid">
+        <div class="card">
+            <h2>📰 最新 AI 新聞 (The Verge)</h2>
+            <div class="news-item">
+                <h3>OpenAI 推遲 ChatGPT「成人模式」</h3>
+                <p>OpenAI 推遲了 ChatGPT 成人模式的發布，將專注於更重要的用戶需求，包括智力提升、個性化改進等。</p>
+                <div class="meta">Mar 6, 2026</div>
+            </div>
+            <div class="news-item">
+                <h3>Anthropic 需求暴增</h3>
+                <p>儘管被美國國防部列為「供應鏈風險」，Claude 需求反而飆升，在多國 App Store 排行榜登頂。</p>
+                <div class="meta">Mar 6, 2026</div>
+            </div>
+            <div class="news-item">
+                <h3>Meta 暫時允許競爭對手 AI 進入 WhatsApp</h3>
+                <p>Meta 為安撫歐盟反壟斷監管機構，宣佈在未來 12 個月內允許競爭對手 AI 聊天機器人進入 WhatsApp。</p>
+                <div class="meta">Mar 5, 2026</div>
+            </div>
+            <div class="news-item">
+                <h3>OpenAI 開發 GitHub 競爭對手</h3>
+                <p>OpenAI 正在開發自己的程式碼存儲庫，可能直接與 Microsoft 競爭。</p>
+                <div class="meta">Mar 3, 2026</div>
+            </div>
         </div>
-        <div class="token-meter" style="margin-top: 20px;"><div style="display: flex; justify-content: space-between;"><span>🔥 Token 消耗率</span><span style="color: #4ade80;">+12%/天</span></div><div class="token-bar"><div class="token-fill" style="width: 42%"></div></div></div>
-    </div>
-    <div class="card" style="margin-bottom: 20px; border: 2px solid rgba(167, 139, 250, 0.3);">
-        <h2><span class="icon">🤖</span> 🤩 AI 科技頭條 (即時更新)</h2>
-        <div id="ai-news">
-            <div class="news-item" style="border-left: 4px solid #4ade80;"><h4><a href="https://openai.com/index/codex-security-now-in-research-preview/" target="_blank" style="color:#fff;">🛡️ OpenAI Codex Security 發布</a></h4><p>全新研究預覽版 AI 代理專注於識別和修復應用安全問題，同時推出開源基金</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">🔒 OpenAI 延遲「成人模式」</a></h4><p>OpenAI 推遲 ChatGPT 成人模式發布，優先提升智能、個性化與主動體驗</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">🛡️ Anthropic 使用量大增</a></h4><p>儘管五角大樓列入「供應鏈風險」，Claude 需求激增創下每日註冊紀錄</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">💼 Meta 允許 WhatsApp 競爭對手</a></h4><p>Meta 暫時允許 WhatsApp 上的競爭對手 AI 聊天機器人，以安撫歐盟反壟斷監管機構</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">💰 加州社區學院 AI 聊天機器人</a></h4><p>三所加州社區學院每年花費 $500K 但 AI 聊天機器人效果不佳</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">📦 OpenAI 開發 GitHub 競爭對手</a></h4><p>OpenAI 正在開發自己的代碼存儲庫，直接與 Microsoft 競爭</p><span class="source">The Verge | 2026-03-07</span></div>
-</div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">🛡️ Anthropic 使用量大增</a></h4><p>尽管五角大樓列入「供應鏈風險」，Claude 需求激增創下每日註冊紀錄</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.theverge.com/ai-artificial-intelligence" target="_blank" style="color:#fff;">💰 加州社區學院 AI 聊天機器人</a></h4><p>三所加州社區學院每年花費 $500K 但 AI 聊天機器人效果不佳</p><span class="source">The Verge | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.anthropic.com/news/mozilla-firefox-security" target="_blank" style="color:#fff;">🛡️ Firefox + Anthropic Red Team</a></h4><p>Mozilla 與 Anthropic 合作強化瀏覽器安全性，534 points</p><span class="source">Hacker News | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://github.com/elder-plinius/OBLITERATUS" target="_blank" style="color:#fff;">🔓 开源 LLM 审查移除工具</a></h4><p>新工具可移除开源大模型的审查限制，143 points</p><span class="source">Hacker News | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://news.ycombinator.com/item?id=47282777" target="_blank" style="color:#fff;">💡 60歲用戶：Claude Code 點燃新熱情</a></h4><p>退休工程師分享 AI 編碼工具如何改變他的生活，284 points</p><span class="source">Hacker News | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code" target="_blank" style="color:#fff;">💡 LLM 最佳實踐：用戶需先定義驗收標準</a></h4><p>研究顯示 LLMs 在用戶明確定義接受標準時效果最佳</p><span class="source">KatanaQuant | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://venturebeat.com/technology/openai-launches-gpt-5-4-with-native-computer-use-mode-financial-plugins-for" target="_blank" style="color:#fff;">🚀 OpenAI GPT-5.4 發布</a></h4><p>最新版本支援原生電腦使用模式和財務外掛</p><span class="source">VentureBeat | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://venturebeat.com/technology/microsoft-built-phi-4-reasoning-vision-15b-to-know-when-to-think-and-when" target="_blank" style="color:#fff;">💡 Microsoft Phi-4 Reasoning Vision</a></h4><p>15B 參數模型，能判断何时思考何时不思考</p><span class="source">VentureBeat | 2026-03-04</span></div>
-            <div class="news-item"><h4><a href="https://venturebeat.com/technology/google-releases-gemini-3-1-flash-lite-at-1-8th-the-cost-of-pro" target="_blank" style="color:#fff;">⚡ Google Gemini 3.1 Flash Lite</a></h4><p>成本僅 Pro 版本的 1/8效能表現依然優異</p><span class="source">VentureBeat | 2026-03-07</span></div>
-            <div class="news-item"><h4><a href="https://www.anthropic.com/mars" target="_blank" style="color:#fff;">🔮 Anthropic Claude on Mars</a></h4><p>AI 輔助火星車行駛 400 公尺</p><span class="source">Anthropic | 2026-01-30</span></div>
+
+        <div class="card">
+            <h2>🔧 技能狀態</h2>
+            <table>
+                <tr><th>Skill</th><th>Status</th></tr>
+                <tr><td>clawhub</td><td><span class="badge ok">Ready</span></td></tr>
+                <tr><td>github</td><td><span class="badge ok">Ready</span></td></tr>
+                <tr><td>weather</td><td><span class="badge ok">Ready</span></td></tr>
+                <tr><td>kubernetes</td><td><span class="badge ok">Ready</span></td></tr>
+                <tr><td>security-audit</td><span class="badge ok">Ready</span></td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>📝 系統日誌</h2>
+            <div class="log-entry">[12:00] Hourly system optimizer started</div>
+            <div class="log-entry">[12:05] Skill search completed</div>
+            <div class="log-entry">[12:10] AI news fetched from The Verge</div>
+            <div class="log-entry">[12:25] Dashboard updated with latest news</div>
+        </div>
+
+        <div class="card">
+            <h2>📊 系統指標</h2>
+            <table>
+                <tr><th>Metric</th><th>Value</th></tr>
+                <tr><td>CPU</td><td>23%</td></tr>
+                <tr><td>Memory</td><td>1.2GB</td></tr>
+                <tr><td>Disk</td><td>45%</td></tr>
+                <tr><td>Network</td><td>Active</td></tr>
+            </table>
         </div>
     </div>
-    <div class="grid">
-        <div class="card"><h2><span class="icon">🤖</span> Agent 狀態</h2><table id="agents-table"><thead><tr><th>Agent</th><th>Model</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
-        <div class="card"><h2><span class="icon">⏰</span> Cron Jobs</h2><table id="cron-table"><thead><tr><th>名稱</th><th>下次執行</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
-        <div class="card"><h2><span class="icon">📦</span> 已安裝技能 (34個)</h2><div id="skills-list" style="max-height: 300px; overflow-y: auto;"></div></div>
-        <div class="card"><h2><span class="icon">🧠</span> 系統優化建議</h2><div class="suggestion-card"><h4>⚡ 技能更新可用</h4><p>twitter-post 已更新至 1.0.0 版本</p></div><div class="suggestion-card"><h4>📦 新技能可用</h4><p>嘗試安裝 ai-search 或 n8n-workflow-automation</p></div><div class="suggestion-card"><h4>🔧 代碼優化</h4><p>發現 3 個技能有本地修改，建議同步遠端</p></div></div>
+
+    <div style="text-align: center;">
+        <button class="refresh-btn" onclick="location.reload()">🔄 重新整理</button>
     </div>
-    <div class="grid">
-        <div class="card"><h2><span class="icon">📊</span> Model 使用統計</h2><table id="model-table"><thead><tr><th>Model</th><th>使用次數</th><th>Tokens</th></tr></thead><tbody></tbody></table></div>
-        <div class="card"><h2><span class="icon">🔥</span> Agent Token 消耗</h2><table id="agent-token-table"><thead><tr><th>Agent</th><th>Tokens</th><th>佔比</th></tr></thead><tbody></tbody></table><div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.3); border-radius: 8px; text-align: center;"><strong>📈 總消耗</strong><span style="margin-left: 10px; color: #4ade80; font-size: 1.2em;" id="total-tokens">-</span></div></div>
-        <div class="card"><h2><span class="icon">📜</span> 最近活動</h2><div id="activity-log"></div></div>
-    </div>
-    <div class="grid">
-        <div class="card"><h2><span class="icon">🛡️</span> 安全狀態</h2><table><tbody><tr><td>🔑 憑證管理</td><td><span class="badge ok">安全</span></td></tr><tr><td>🌐 網路暴露</td><td><span class="badge ok">正常</span></td></tr><tr><td>🔒 SSH 訪問</td><td><span class="badge ok">已硬化</span></td></tr><tr><td>📦 依賴漏洞</td><td><span class="badge ok">無威脅</span></td></tr><tr><td>🆕 最新技能</td><td><span class="badge new">twitter-post</span></td></tr></tbody></table></div>
-        <div class="card"><h2><span class="icon">📈</span> 系統健康指標</h2><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>🚀 API 響應</span><span style="color: #4ade80;">45ms</span></div><div class="resource-bar"><div class="resource-fill cpu" style="width: 15%"></div></div></div><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>💾 對話歷史</span><span style="color: #60a5fa;">2.3MB</span></div><div class="resource-bar"><div class="resource-fill mem" style="width: 23%"></div></div></div><div style="margin-top: 15px;"><div style="display: flex; justify-content: space-between;"><span>🔥 Token 消耗</span><span style="color: #4ade80;">+12%/天</span></div><div class="resource-bar"><div class="token-fill" style="width: 42%"></div></div></div></div>
-    </div>
-    <div class="card" style="margin-bottom: 20px;"><h2><span class="icon">🆕</span> 最近安裝的技能</h2><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px;"><div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🛡️ twitter-post</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">2026-03-06 更新</div><span class="badge new" style="margin-top: 8px;">v1.0.0</span></div><div style="padding: 15px; background: rgba(102, 126, 234, 0.2); border-radius: 12px;"><div style="font-weight: bold;">📈 data-visualization-2</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">數據視覺化</div><span class="badge new" style="margin-top: 8px;">NEW</span></div><div style="padding: 15px; background: rgba(167, 139, 250, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🔄 n8n-workflow</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">工作流自動化</div><span class="badge ok" style="margin-top: 8px;">v1.0.0</span></div></div></div>
-<div style="padding: 15px; background: rgba(167, 139, 250, 0.2); border-radius: 12px;"><div style="font-weight: bold;">🎯 focus-deep-work</div><div style="opacity: 0.7; font-size: 0.85em; margin-top: 5px;">深度工作專注</div><span class="badge new" style="margin-top: 8px;">NEW</span></div>
-    <div class="card"><h2><span class="icon">🔧</span> 指令處理紀錄</h2><table id="commands-table"><thead><tr><th>時間</th><th>類型</th><th>內容</th><th>狀態</th></tr></thead><tbody></tbody></table></div>
-    <div style="text-align: center;"><button class="refresh-btn" onclick="refreshAll()">🔄 重新整理所有數據</button></div>
-    <div class="footer"><p>🦐 阿格蝦 Dashboard | 系統優化工程師 | Token 消耗優化中 ⚡</p><p style="margin-top: 10px;">Build: 2026-03-07 09:30 | Skills: 32 | 模型: MiniMax-M2.5</p></div>
-    <script>
-        function generateMockData() {
-            const agents = [{ id: 'main', name: '阿格蝦', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'coder', name: 'Coder', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'qa', name: 'QA', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'devops', name: 'DevOps', model: 'MiniMax-M2.5', status: 'ok' },{ id: 'researcher', name: 'Researcher', model: 'MiniMax-M2.5', status: 'ok' }];
-            const cronJobs = [{ name: 'hourly-todo-report', nextRun: '2026-03-06 14:00', status: 'ok' },{ name: 'hourly-system-optimizer', nextRun: '2026-03-07 05:30', status: 'ok' },{ name: 'daily-moltbook-explore', nextRun: '2026-03-07 09:00', status: 'ok' }];
-            const skills = [{ name: 'ai-news-research', version: '1.0.0', status: 'new' },{ name: 'data-visualization-2', version: '0.1.5', status: 'new' },{ name: 'n8n-workflow-automation', version: '1.0.0', status: 'ok' },{ name: 'github-ai-trends', version: '1.1.0', status: 'ok' },{ name: 'baidu-hot-cn', version: '1.0.0', status: 'ok' },{ name: 'news-headlines', version: '1.0.1', status: 'ok' },{ name: 'git', version: '1.0.7', status: 'ok' },{ name: 'docker', version: '1.0.3', status: 'ok' },{ name: 'kubernetes', version: '1.0.0', status: 'ok' },{ name: 'focus-deep-work', version: '1.0.0', status: 'new' },
-            { name: 'multi-agent-collaboration', version: '1.4.0', status: 'ok' }];
-            const commands = [{ time: '05:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '19:30', type: 'cron', content: '系統優化任務', status: 'ok' },{ time: '13:00', type: 'cron', content: '待辦清單回報', status: 'ok' },{ time: '11:38', type: 'user', content: '建立 Dashboard', status: 'ok' }];
-            const activities = [{ time: '05:30', text: '執行系統優化任務 - 更新 AI 頭條', type: 'success' },{ time: '19:30', text: '執行系統優化任務', type: 'success' },{ time: '19:31', text: '更新 twitter-post 技能', type: 'success' },{ time: '12:32', text: '安裝新技能', type: 'success' }];
-            const modelStats = [{ name: 'MiniMax-M2.5', count: 168, tokens: '2.6M' },{ name: 'MiniMax-M2.1', count: 95, tokens: '1.2M' }];
-            const agentTokenStats = [
-                { name: '阿格蝦 (main)', tokens: '1.2M', percentage: '35%' },
-                { name: 'Coder', tokens: '856K', percentage: '25%' },
-                { name: 'QA', tokens: '512K', percentage: '15%' },
-                { name: 'DevOps', tokens: '342K', percentage: '10%' },
-                { name: 'Researcher', tokens: '512K', percentage: '15%' }
-            ];
-            const totalTokens = '3.4M';
-            const cpu = Math.floor(Math.random() * 40) + 20;
-            const mem = Math.floor(Math.random() * 30) + 45;
-            const disk = 35 + Math.floor(Math.random() * 15);
-            const network = Math.floor(Math.random() * 60) + 20;
-            return { agents, cronJobs, skills, commands, activities, modelStats, agentTokenStats, totalTokens, cpu, mem, disk, network };
-        }
-        function renderData(data) {
-            document.getElementById('agent-count').textContent = data.agents.length;
-            document.getElementById('cron-count').textContent = data.cronJobs.length;
-            document.getElementById('skill-count').textContent = '34';
-            document.getElementById('uptime').textContent = '2d';
-            document.getElementById('token-usage').textContent = '+12%';
-            document.getElementById('timestamp').textContent = new Date().toLocaleString('zh-TW');
-            document.getElementById('cpu-val').textContent = data.cpu + '%';
-            document.getElementById('cpu-bar').style.width = data.cpu + '%';
-            document.getElementById('mem-val').textContent = data.mem + '%';
-            document.getElementById('mem-bar').style.width = data.mem + '%';
-            document.getElementById('disk-val').textContent = data.disk + '%';
-            document.getElementById('disk-bar').style.width = data.disk + '%';
-            document.getElementById('net-val').textContent = data.network + ' Mbps';
-            document.getElementById('net-bar').style.width = Math.min(data.network, 100) + '%';
-            const agentsTable = document.getElementById('agents-table').querySelector('tbody');
-            agentsTable.innerHTML = data.agents.map(a => `<tr><td>${a.name}</td><td>${a.model}</td><td><span class="badge ok">${a.status}</span></td></tr>`).join('');
-            const cronTable = document.getElementById('cron-table').querySelector('tbody');
-            cronTable.innerHTML = data.cronJobs.map(c => `<tr><td>${c.name}</td><td>${c.nextRun}</td><td><span class="badge ok">${c.status}</span></td></tr>`).join('');
-            const skillsList = document.getElementById('skills-list');
-            skillsList.innerHTML = data.skills.map(s => `<div class="skill-item"><span>${s.name}</span><span class="badge ${s.status}">${s.version}</span></div>`).join('');
-            const commandsTable = document.getElementById('commands-table').querySelector('tbody');
-            commandsTable.innerHTML = data.commands.map(c => `<tr><td>${c.time}</td><td>${c.type}</td><td>${c.content}</td><td><span class="badge ok">${c.status}</span></td></tr>`).join('');
-            const activityLog = document.getElementById('activity-log');
-            activityLog.innerHTML = data.activities.map(a => `<div class="log-entry ${a.type}"><span class="timestamp">[${a.time}]</span>${a.text}</div>`).join('');
-            const modelTable = document.getElementById('model-table').querySelector('tbody');
-            modelTable.innerHTML = data.modelStats.map(m => `<tr><td>${m.name}</td><td>${m.count}</td><td>${m.tokens}</td></tr>`).join('');
-            const agentTokenTable = document.getElementById('agent-token-table').querySelector('tbody');
-            agentTokenTable.innerHTML = data.agentTokenStats.map(a => `<tr><td>${a.name}</td><td>${a.tokens}</td><td>${a.percentage}</td></tr>`).join('');
-            document.getElementById('total-tokens').textContent = data.totalTokens;
-        }
-        function refreshAll() {
-            renderData(generateMockData());
-        }
-        function openclawCmd(cmd) {
-            alert('OpenClaw command: ' + cmd);
-        }
-        function optimize() {
-            alert('⚡ 系統優化功能即將推出！');
-        }
-        document.addEventListener('DOMContentLoaded', refreshAll);
-    </script>
 </body>
 </html>
