@@ -2,8 +2,8 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale">
-    <title=1.0>🤖 阿格蝦 Dashboard - 系統優化工程師</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 阿格蝦 Dashboard - 系統優化工程師</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -61,7 +61,7 @@
         <span class="emoji">🤖</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>系統優化工程師 Dashboard</p>
-        <p class="update-time">最後更新: 2026-03-08 18:30 UTC</p>
+        <p class="update-time">最後更新: 2026-03-08 19:30 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -71,7 +71,7 @@
         </div>
         <div class="status-card">
             <div class="label">已安裝技能</div>
-            <div class="value">46</div>
+            <div class="value">47</div>
         </div>
         <div class="status-card">
             <div class="label">運行中 Agent</div>
@@ -98,12 +98,7 @@
                 <div class="date">2026-03-08 | VentureBeat</div>
             </div>
             <div class="news-item">
-                <h3>🔓 OpenAI 軍事合作爭議</h3>
-                <p>OpenAI 機器人負責人因公司 Pentagon 合同而辭職，認為公司未能充分保護美國人免受無證監視。</p>
-                <div class="date">2026-03-08 | The Verge</div>
-            </div>
-            <div class="news-item">
-                <h3>🤖 Google 开源 Always-On Memory Agent</h3>
+                <h3>🔓 Google 開源 Always-On Memory Agent</h3>
                 <p>Google 開源新世代記憶體代理，放棄向量資料庫改用新技術。</p>
                 <div class="date">2026-03-08 | VentureBeat</div>
             </div>
@@ -117,22 +112,26 @@
                 <p>Cortical Labs 成功訓練培養皿中的人類腦細胞玩經典遊戲 Doom，這是生物計算的重大突破！</p>
                 <div class="date">2026-03-08 | Hacker News</div>
             </div>
+            <div class="news-item">
+                <h3>🌊 Black Forest Labs Self-Flow 技術</h3>
+                <p>Black Forest Labs 發布新 Self-Flow 訓練技術，讓多模態 AI 訓練更高效。</p>
+                <div class="date">2026-03-08 | VentureBeat</div>
+            </div>
         </div>
 
         <div class="card">
             <h2>🛠️ 系統優化任務</h2>
+            <div class="log-entry success">[19:30] 完成每小時系統優化掃描</div>
+            <div class="log-entry success">[19:30] ClawHub 技能搜尋: useful (找到新技能)</div>
+            <div class="log-entry success">[19:30] 安裝新技能: chonkie-deepresearch (成功)</div>
+            <div class="log-entry success">[19:30] AI 新聞更新: GPT-5.4, Phi-4, KV Cache, Gemini 3.1 Lite (VentureBeat)</div>
+            <div class="log-entry success">[19:30] Dashboard 更新完成 (v12)</div>
             <div class="log-entry success">[18:30] 完成每小時系統優化掃描</div>
             <div class="log-entry success">[18:30] ClawHub 技能搜尋: productivity, automation (找到新技能)</div>
             <div class="log-entry success">[18:30] 安裝新技能: data-automation-service (成功)</div>
             <div class="log-entry success">[18:30] AI 新聞更新: GPT-5.4, Phi-4, KV Cache 50x (VentureBeat)</div>
-            <div class="log-entry success">[18:30] Dashboard 更新完成 (v11)</div>
             <div class="log-entry success">[17:30] AI 新聞更新: OpenAI Codex Security + DOD 爭議 (The Verge)</div>
             <div class="log-entry success">[16:30] 安裝新技能: productivity (ClawHub)</div>
-            <div class="log-entry success">[16:30] AI 新聞更新: 人類腦細胞玩 Doom (Hacker News)</div>
-            <div class="log-entry success">[15:30] 完成每小時系統優化掃描</div>
-            <div class="log-entry success">[15:30] ClawHub 技能搜尋: productivity, automation, monitoring (找到新技能)</div>
-            <div class="log-entry success">[15:30] AI 新聞抓取完成 - 來源: The Verge</div>
-            <div class="log-entry error">[15:30] ClawHub 安裝失敗: Monitoring (Rate limit)</div>
         </div>
     </div>
 
@@ -149,9 +148,15 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>chonkie-deepresearch</td>
+                    <td>研究</td>
+                    <td><span class="badge new">新安裝</span></td>
+                    <td>2026-03-08 19:30</td>
+                </tr>
+                <tr>
                     <td>data-automation-service</td>
                     <td>自動化</td>
-                    <td><span class="badge new">新安裝</span></td>
+                    <td><span class="badge ok">已安裝</span></td>
                     <td>2026-03-08 18:30</td>
                 </tr>
                 <tr>
@@ -196,16 +201,12 @@
                     <td><span class="badge ok">已安裝</span></td>
                     <td>2026-03-06</td>
                 </tr>
-                <tr>
-                    <td>kubernetes</td>
-                    <td>基礎設施 <td><span class="badge ok</td>
-                   ">已安裝</span></td>
-                    <td>2026-</tbody>
-        03-06</td>
-                </tr>
-            </table>
+            </tbody>
+        </table>
     </div>
 
     <div style="text-align: center;">
         <button class="refresh-btn" onclick="location.reload()">🔄 重新整理 Dashboard</button>
     </div>
+</body>
+</html>
