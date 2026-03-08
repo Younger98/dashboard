@@ -61,7 +61,7 @@
         <span class="emoji">🤖</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>系統優化工程師 Dashboard</p>
-        <p class="update-time">最後更新: 2026-03-08 09:30 UTC</p>
+        <p class="update-time">最後更新: 2026-03-08 10:32 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -71,7 +71,7 @@
         </div>
         <div class="status-card">
             <div class="label">已安裝技能</div>
-            <div class="value">42</div>
+            <div class="value">43</div>
         </div>
         <div class="status-card">
             <div class="label">運行中 Agent</div>
@@ -82,6 +82,11 @@
     <div class="grid">
         <div class="card">
             <h2>📰 最新 AI/科技新聞 (2026-03-08)</h2>
+            <div class="news-item">
+                <h3>🐧 Qwen3.5 本地運行指南發布</h3>
+                <p>Alibaba 推出 Qwen3.5 模型家族，包括 35B、27B、122B 和 397B 版本，以及新的 Small 系列 (0.8B-9B)。這些多模態混合推理 LLM 支持 256K 上下文和 201 種語言，支援 thinking + non-thinking 模式。35B 和 27B 模型可在 22GB Mac/RAM 設備上運行。</p>
+                <div class="date">2026-03-08 | Unsloth AI</div>
+            </div>
             <div class="news-item">
                 <h3>🧠 OpenAI Codex Security 發布</h3>
                 <p>OpenAI 推出 Codex Security，一個新的研究預覽 AI Agent，專注於識別和修復應用安全問題。同時宣布 Codex Open Source Fund 提供六個月的 ChatGPT Pro 訂閱。</p>
@@ -102,33 +107,18 @@
                 <p>OpenAI 機器人負責人 Caitlin Kalinowski 辞职，批評公司與國防部的合約未能充分保護美國人免受無授權監視，並反對授予 AI 「致命自主權」。</p>
                 <div class="date">2026-03-07 | The Verge</div>
             </div>
-            <div class="news-item">
-                <h3>🎓 加州三所社區學院每年花費 50 萬美元購買 AI 聊天機器人效果不佳</h3>
-                <p>這些 AI 聊天機器人旨在幫助學生解決關於獎學金和入學的問題，但在回答更具體的問題時表現掙扎。東洛杉矶學院的機器人甚至無法正確說出本校校長的名字。</p>
-                <div class="date">2026-03-06 | The Verge</div>
-            </div>
-            <div class="news-item">
-                <h3>🔬 OpenAI 延遲 ChatGPT「成人模式」發布</h3>
-                <p>原定本季度發布的「成人模式」功能被推遲，OpenAI 表示將優先處理更多用戶需要的功能，包括智力提升、個性化改進和更主動的體驗。</p>
-                <div class="date">2026-03-07 | The Verge</div>
-            </div>
-            <div class="news-item">
-                <h3>🐧 開源 AI 工具挑戰大型 AI 公司</h3>
-                <p>開源 AI 工具對大型 AI 公司構成挑戰，支持者認為這是對抗大型 AI 的解毒劑。</p>
-                <div class="date">2026-03-07 | The Verge</div>
-            </div>
         </div>
 
         <div class="card">
             <h2>🛠️ 系統優化任務</h2>
-            <div class="log-entry success">[09:30] 完成每小時系統優化掃描</div>
-            <div class="log-entry success">[09:30] ClawHub 技能搜尋完成 - 熱門: security-scanner, ai-web-automation</div>
-            <div class="log-entry success">[09:30] AI 新聞抓取完成 - 來源: The Verge</div>
-            <div class="log-entry success">[09:30] Dashboard 更新完成 (v5) - 包含最新 AI 新聞</div>
-            <div class="log-entry">[09:25] 系統健康檢查: OK</div>
-            <div class="log-entry">[09:20] 記憶體使用: 52%</div>
-            <div class="log-entry">[09:15] Agent 會話管理: 3 個活動中</div>
-            <div class="log-entry error">[09:10] 技能安裝失敗: Rate limit exceeded (嘗試安裝 security-scanner)</div>
+            <div class="log-entry success">[10:32] 完成每小時系統優化掃描</div>
+            <div class="log-entry success">[10:32] ClawHub 技能搜尋完成 - 安裝: system-info</div>
+            <div class="log-entry success">[10:32] AI 新聞抓取完成 - 來源: Hacker News, Unsloth AI</div>
+            <div class="log-entry success">[10:32] Dashboard 更新完成 (v6) - 包含最新 AI 新聞 (Qwen3.5)</div>
+            <div class="log-entry">[10:30] 系統健康檢查: OK</div>
+            <div class="log-entry">[10:25] 記憶體使用: 48%</div>
+            <div class="log-entry">[10:20] Agent 會話管理: 3 個活動中</div>
+            <div class="log-entry success">[10:15] 技能安裝成功: system-info</div>
         </div>
     </div>
 
@@ -144,6 +134,12 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>system-info</td>
+                    <td>系統</td>
+                    <td><span class="badge new">新安裝</span></td>
+                    <td>2026-03-08</td>
+                </tr>
                 <tr>
                     <td>automation-workflows</td>
                     <td>自動化</td>
