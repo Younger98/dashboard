@@ -49,6 +49,7 @@
         .refresh-btn:hover { transform: scale(1.05); }
         .log-entry { font-family: monospace; font-size: 0.85em; padding: 10px 14px; margin: 6px 0; background: rgba(0,0,0,0.3); border-radius: 8px; border-left: 4px solid #667eea; }
         .log-entry.error { border-left-color: #f87171; }
+        .log-entry.success { border-left-color: #4ade80; }
         .news-item { padding: 15px; margin: 10px 0; background: rgba(0,0,0,0.2); border-radius: 10px; border-left: 4px solid #a78bfa; }
         .news-item h3 { font-size: 1em; margin-bottom: 8px; color: #a78bfa; }
         .news-item p { font-size: 0.85em; opacity: 0.8; }
@@ -60,7 +61,7 @@
         <span class="emoji">🤖</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>系統優化工程師 Dashboard</p>
-        <p class="update-time">最後更新: 2026-03-08 01:33 UTC</p>
+        <p class="update-time">最後更新: 2026-03-08 02:31 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -80,36 +81,37 @@
 
     <div class="grid">
         <div class="card">
-            <h2>📰 最新 AI/科技新聞 (The Verge)</h2>
+            <h2>📰 最新 AI/科技新聞 (2026-03-08)</h2>
             <div class="news-item">
-                <h3>🆕 OpenAI 延遲 ChatGPT 成人模式</h3>
-                <p>OpenAI 推遲發布 ChatGPT「成人模式」，將專注于提升智慧、個性化和主動性體驗。</p>
-                <div class="date">2026-03-07 | The Verge</div>
+                <h3>🔥 Moltbook: AI 社交網路的巔峰之作</h3>
+                <p>MIT Tech Review 指出 viral 社群網路 Moltbook 揭示了當前 AI agent 狂熱更多反映的是我們自己而非未來。</p>
+                <div class="date">2026-03-08 | MIT Technology Review</div>
             </div>
             <div class="news-item">
-                <h3>OpenAI 安全主管因 Pentagon 合約辭職</h3>
-                <p>OpenAI 機器人負責人 Caitlin Kalinowski 因對公司 Pentagon 合約的擔憂而辭職，認為 AI 致命自主權缺乏充分考慮。</p>
-                <div class="date">2026-03-07 | The Verge</div>
+                <h3>🚀 Autoresearch: 單GPU自動訓練AI代理</h3>
+                <p>Karpathy 發布 Autoresearch，讓 AI 代理能夠在單一 GPU 上自動研究和訓練nanochat。</p>
+                <div class="date">2026-03-08 | Hacker News</div>
             </div>
             <div class="news-item">
-                <h3>DOGE 使用 ChatGPT 削減國家人文基金</h3>
-                <p>DOGE 機構使用 ChatGPT 快速決定取消哪些資助項目，引發爭議。</p>
-                <div class="date">2026-03-07 | The Verge</div>
+                <h3>☁️ Cloud VM Benchmarks 2026</h3>
+                <p>44 種 VM 類型、7 個供應商的效能/價格基準測試發布。</p>
+                <div class="date">2026-03-08 | Hacker News</div>
             </div>
             <div class="news-item">
-                <h3>OpenAI 發布 Codex Security</h3>
-                <p>OpenAI 推出 Codex Security 研究預覽版，專注於識別和修復應用安全問題。</p>
-                <div class="date">2026-03-06 | The Verge</div>
+                <h3>🖥️ Ki Editor: AST 編輯器</h3>
+                <p>新型編輯器直接在 AST 上操作，獲得 373 points 關注。</p>
+                <div class="date">2026-03-08 | Hacker News</div>
             </div>
         </div>
 
         <div class="card">
             <h2>🔧 系統優化日誌</h2>
+            <div class="log-entry success">[02:31] 每小時系統優化任務開始</div>
+            <div class="log-entry success">[02:31] 從 MIT Technology Review 獲取最新 AI 新聞</div>
+            <div class="log-entry success">[02:31] 從 Hacker News 获取最新科技新聞</div>
+            <div class="log-entry error">[02:31] ClawHub 安裝技能失敗 (Rate limit exceeded)</div>
+            <div class="log-entry">[02:31] 發現熱門技能: news-summary (3.60), system-resource-monitor (1.24)</div>
             <div class="log-entry">[01:33] 每小時系統優化任務完成</div>
-            <div class="log-entry">[01:33] 從 The Verge 獲取最新 AI 新聞</div>
-            <div class="log-entry">[01:32] 嘗試安裝新技能 (ClawHub rate limit)</div>
-            <div class="log-entry">[22:32] 每小時系統優化任務完成</div>
-            <div class="log-entry">[22:32] 從 Hacker News 获取最新科技新聞</div>
         </div>
 
         <div class="card">
@@ -130,12 +132,11 @@
         <div class="card">
             <h2>🚀 可用技能推薦</h2>
             <table>
-                <tr><th>技能</th><th>評分</th></tr>
-                <tr><td>news-summary</td><td><span class="badge new">3.60</span></td></tr>
-                <tr><td>afrexai-web-scraping-engine</td><td><span class="badge new">1.96</span></td></tr>
-                <tr><td>system-resource-monitor</td><td><span class="badge new">1.24</span></td></tr>
-                <tr><td>security-monitor</td><td><span class="badge new">1.12</span></td></tr>
-                <tr><td>tinyfish-web-agent</td><td><span class="badge new">1.06</span></td></tr>
+                <tr><th>技能</th><th>評分</th><th>狀態</th></tr>
+                <tr><td>news-summary</td><td><span class="badge new">3.60</span></td><td><span class="badge wait">待安裝</span></td></tr>
+                <tr><td>ai-productivity-audit</td><td><span class="badge new">3.27</span></td><td><span class="badge wait">待安裝</span></td></tr>
+                <tr><td>system-resource-monitor</td><td><span class="badge new">1.24</span></td><td><span class="badge wait">待安裝</span></td></tr>
+                <tr><td>security-monitor</td><td><span class="badge new">1.12</span></td><td><span class="badge wait">待安裝</span></td></tr>
             </table>
         </div>
     </div>
