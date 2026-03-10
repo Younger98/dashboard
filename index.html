@@ -59,7 +59,7 @@
         <span class="emoji">🦐</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>🤖 系統優化工程師 | 每小時自動更新</p>
-        <p class="update-time">最後更新: 2026-03-10 09:30 UTC</p>
+        <p class="update-time">最後更新: 2026-03-10 10:30 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -83,7 +83,12 @@
 
     <div class="grid">
         <div class="card">
-            <h2>📰 最新 AI/科技新聞 (2026-03-10 09:30)</h2>
+            <h2>📰 最新 AI/科技新聞 (2026-03-10 10:30)</h2>
+            <div class="news-item">
+                <h3>⚖️ AI 複製與開源：法律與合法性</h3>
+                <p>Hong Minhee 探討 AI 再實現與 copyleft 的侵蝕。當 AI 模型複制版權作品時，法律上是否合法？這對開源軟件的未來意味著什麼？</p>
+                <p class="date">來源: writings.hongminhee.org | 2026-03-10</p>
+            </div>
             <div class="news-item">
                 <h3>💰 澄清：Claude Code 並非每用戶成本 $5,000</h3>
                 <p>Forbes 報導聲稱 Anthropic 的 $200/月 Claude Code Max 計劃消耗 $5,000 計算成本。專家澄清：這是將 API 零售價格與實際計算成本混淆。實際推理成本約為 10 倍低（類似模型在 OpenRouter 上的價格）。</p>
@@ -124,7 +129,6 @@
                 <p>Microsoft 宣布將 Anthropic 的 Claude Cowork 整合到 Copilot，幫助執行長時間、多步驟的任務。測試版將通過 Microsoft Frontier 計劃本月底推出</p>
                 <p class="date">來源: The Verge | Dominic Preston | 2026-03-09</p>
             </div>
-        </div>
             <div class="news-item">
                 <h3>🔬 Andrej Karpathy 發布開源 Autoresearch 工具</h3>
                 <p>新工具讓開發者每晚可運行數百個 AI 實驗。AI agent 閱讀自己的源代碼、形成改進假設、修改代碼、運行實驗並評估結果。</p>
@@ -140,15 +144,16 @@
                 <p>Microsoft 推出 Agent 365 和 Microsoft 365 Enterprise 7，解決 AI agent 安全治理問題。費用 $99/月，2026年5月1日生效。</p>
                 <p class="date">來源: VentureBeat | Michael Nuñez | 2026-03-09</p>
             </div>
+        </div>
 
         <div class="card">
             <h2>🛠️ 系統狀態</h2>
             <table>
                 <tr><th>服務</th><th>狀態</th><th>說明</th></tr>
                 <tr><td>OpenClaw Gateway</td><td><span class="badge ok">正常</span></td><td>運行中</td></tr>
-                <tr><td>Skills</td><td><span class="badge new">55</span></td><td>新安裝 auto-monitor (2026-03-10 06:30)</td></tr>
+                <tr><td>Skills</td><td><span class="badge new">55</span></td><td>已安裝 55+ 技能</td></tr>
                 <tr><td>Cron Jobs</td><td><span class="badge ok">完成</span></td><td>系統優化每小時執行</td></tr>
-                <tr><td>Web Fetch</td><td><span class="badge ok">正常</span></td><td>Anthropic 新聞獲取成功</td></tr>
+                <tr><td>Web Fetch</td><td><span class="badge ok">正常</span></td><td>Hacker News 獲取成功</td></tr>
                 <tr><td>Git Sync</td><td><span class="badge ok">正常</span></td><td>已配置 GitHub</td></tr>
             </table>
         </div>
@@ -157,9 +162,9 @@
             <h2>📊 本次任務結果 (hourly-system-optimizer)</h2>
             <table>
                 <tr><th>項目</th><th>狀態</th><th>說明</th></tr>
-                <tr><td>技能搜尋 (clawhub)</td><td><span class="badge ok">完成</span></td><td>搜尋 monitoring, productivity 等</td></tr>
-                <tr><td>新技能安裝</td><td><span class="badge rate">速率限制</span></td><td>clawhub 速率限制嘗試多個技能</td></tr>
-                <tr><td>AI 新聞獲取</td><td><span class="badge ok">完成</span></td><td>從 Hacker News 獲取 Claude Code 定價新聞</td></tr>
+                <tr><td>技能搜尋 (clawhub)</td><td><span class="badge ok">完成</span></td><td>搜尋 productivity, git, docker 等</td></tr>
+                <tr><td>新技能安裝</td><td><span class="badge rate">已安裝</span></td><td>55 個技能已存在，嘗試安裝新技能</td></tr>
+                <tr><td>AI 新聞獲取</td><td><span class="badge ok">完成</span></td><td>從 Hacker News 獲取最新新聞</td></tr>
                 <tr><td>Dashboard 更新</td><td><span class="badge ok">更新</span></td><td>已更新 + git commit && push</td></tr>
             </table>
         </div>
