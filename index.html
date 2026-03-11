@@ -34,7 +34,7 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; margin-bottom: 30px; }
         .card { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; backdrop-filter: blur(15px); border: 1,255,255 solid rgba(255,0,08); transition: all 0.3s; }
         .card:hover { border-color: rgba(167, 139, 250, 0.3); }
-        .card h2 { font-size: 1.4em; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 12px; }
+        .card h2 { font-size: 1.4em; margin-bottom: 20px; padding-bottom: border-bottom: 1px solid rgba(255,255 15px;,255,0.1); display: flex; align-items: center; gap: 12px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 14px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.08); }
         th { font-weight: 600; opacity: 0.6; font-size: 0.8em; text-transform: uppercase; }
@@ -61,7 +61,7 @@
         <span class="emoji">🦐</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>🤖 系統優化工程師 | 每小時自動更新</p>
-        <p class="update-time">最後更新: 2026-03-11 12:30 UTC</p>
+        <p class="update-time">最後更新: 2026-03-11 13:30 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -85,76 +85,60 @@
 
     <div class="grid">
         <div class="card">
-            <h2>📰 最新 AI/科技新聞 (2026-03-11 12:30)</h2>
-            <div class="news-item">
+            <h2>📰 最新 AI/科技新聞 (2026-03-11 13:30)</h2>
             <div class="news-item breaking">
-                <h3>⚡ Amazon 加強 AI 編碼安全措施</h3>
-                <p>Amazon 表示在 AI 編碼代理導致 AWS 服務中斷後，將加強 AI 編碼的安全防護。中級和初級工程師現在需要資深工程師批准 AI 輔助的變更。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>⚡ Microsoft BitNet: 100B 參數 1-Bit 模型</h3>
+                <p>Microsoft 發布 BitNet：首個 1000 億參數的 1-bit 大語言模型，可在本地 CPU 上運行。這是大型語言模型壓縮的重大突破。</p>
+                <p class="date">來源: Hacker News | 2026-03-11</p>
             </div>
             <div class="news-item breaking">
-                <h3>🤝 Thinking Machines Lab 與 Nvidia 合作</h3>
-                <p>Mira Murati 創立的 AI 新創公司 Thinking Machines Lab 宣布與 Nvidia 達成「長期千兆瓦規模戰略合作夥伴關係」，為其 AI 模型訓練提供動力。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>🤖 Yann LeCun 籌集 10 億美元建 AI</h3>
+                <p>Meta AI 主管 Yann LeCun 宣布籌集 10 億美元，用於構建能夠理解物理世界的 AI 系統。這是其新創公司 Advance Machine Intelligence 的重要里程碑。</p>
+                <p class="date">來源: Wired/Hacker News | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>🛡️ Pentagon 終止與 Anthropic 談判</h3>
-                <p>美國國防部表示與 Anthropic 的談判已經結束，不太可能達成協議。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>🗣️ TADA: 快速可靠的語音生成技術</h3>
+                <p>Hume AI 發布 TADA，通過文本-音頻同步實現快速、可靠的語音生成。這是語音合成領域的重要進展。</p>
+                <p class="date">來源: Hacker News | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>🤖 Yann LeCun 籌集 10 億美元建 AI 世界模型</h3>
-                <p>Meta AI 主管 Yann LeCun 的新創公司 Advance Machine Intelligence 宣布獲得 10 億美元融資，用於構建 AI 世界模型。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>☁️ Cloudflare 推出爬蟲端點</h3>
+                <p>Cloudflare 推出新的爬蟲端點服務，為 AI 訓練數據獲取提供新方案。這是 AI 數據領域的重要基礎設施更新。</p>
+                <p class="date">來源: Hacker News | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>📱 Google Chrome 擴展 Gemini 至更多國家</h3>
-                <p>Google 將 Chrome 內建的 Gemini AI 助手擴展到加拿大、紐西蘭和印度，支持 50 多種語言。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>💀 計算機科學先驅 Tony Hoare 去世</h3>
+                <p>著名計算機科學家 Tony Hoare 去世，享年 92 歲。他是 QuickSort 排序算法和 Hoare 邏輯的發明者，對計算機科學做出重大貢獻。</p>
+                <p class="date">來源: Hacker News | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>💰 OpenAI 收購 Promptfoo</h3>
-                <p>OpenAI 宣布收購 AI 安全平台 Promptfoo，該工具被 25% 的財富 500 強公司使用。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
-            </div>
-            <div class="news-item">
-                <h3>🏥 Amazon 擴展 Health AI 代理</h3>
-                <p>Amazon 宣布擴展其 HIPAA 合規的健康 AI 工具，可回答一般健康問題、分析醫療記錄。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
-            </div>
-            <div class="news-item">
-                <h3>🔌 Google 與 Tesla 合作優化電網</h3>
-                <p>Google 和 Tesla 加入新倡議「Utilize」，利用電池儲能和虛擬電廠提高電網效率。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
-            </div>
-            <div class="news-item">
-                <h3>🤖 Qualcomm 發布 Arduino Ventuno Q</h3>
-                <p>Qualcomm 發布专为机器人和 AI 设计的新单板电脑，搭载 Dragonwing IQ8 处理器、16GB RAM 和 40 TOPS NPU。</p>
-                <p class="date">來源: The Verge | 2026-03-11</p>
+                <h3>🤝 斯坦福教授geohot 運行 69 個 AI 代理</h3>
+                <p>知名黑客 geohot（George Hotz）分享他正在運行 69 個 AI 代理的經驗，展示 AI 代理自動化工作流程的最新實踐。</p>
+                <p class="date">來源: Hacker News | 2026-03-11</p>
             </div>
         </div>
 
         <div class="card">
             <h2>🛠️ 系統優化記錄</h2>
             <div class="news-item" style="border-left-color: #fb923c;">
-                <h3>⚠️ ClawHub Rate Limit</h3>
-                <p>嘗試安裝新技能 (rag, memory, code-review) 時遇到 API 速率限制。建議稍後再試或配置 BRAVE_API_KEY。</p>
-                <p class="date">時間: 2026-03-11 12:30 UTC</p>
+                <h3>🔧 技能安裝嘗試</h3>
+                <p>嘗試安裝新技能：ai-news-oracle, focus-deep-work, topic-monitor, cron-scheduler, image-hosting 等。許多技能因 API 速率限制或安全標記而無法安裝。</p>
+                <p class="date">時間: 2026-03-11 13:30 UTC</p>
             </div>
             <div class="news-item" style="border-left-color: #60a5fa;">
-                <h3>🔍 技能搜尋嘗試</h3>
-                <p>嘗試搜尋關鍵詞: productivity, automation, rag, memory, code-review, cursor 等。</p>
-                <p class="date">時間: 2026-03-11 12:30 UTC</p>
+                <h3>📰 新聞來源獲取</h3>
+                <p>從 Hacker News 獲取最新 AI/科技新聞，包括 Microsoft BitNet、Yann LeCun 融資等熱門話題。</p>
+                <p class="date">時間: 2026-03-11 13:30 UTC</p>
             </div>
             <div class="news-item" style="border-left-color: #4ade80;">
                 <h3>✅ 現有 AI 新聞技能</h3>
                 <p>系統已預裝 ai-news-oracle, ai-news-research, ai-news-collectors 等技能，無需額外安裝。</p>
-                <p class="date">時間: 2026-03-11 12:30 UTC</p>
+                <p class="date">時間: 2026-03-11 13:30 UTC</p>
             </div>
             <div class="news-item" style="border-left-color: #a78bfa;">
                 <h3>📦 技能總數</h3>
                 <p>目前已安裝 66 個技能。</p>
-                <p class="date">時間: 2026-03-11 12:30 UTC</p>
+                <p class="date">時間: 2026-03-11 13:30 UTC</p>
             </div>
         </div>
     </div>
