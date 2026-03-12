@@ -7,7 +7,7 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft JhengHei', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
             color: #fff;
@@ -49,11 +49,12 @@
         .refresh-btn { background: linear-gradient(135deg, #667eea, #764ba2); border: none; color: white; padding: 14px 28px; border-radius: 12px; cursor: pointer; font-size: 1em; margin-top: 20px; font-weight: 600; }
         .refresh-btn:hover { transform: scale(1.05); }
         .news-item { padding: 15px; margin: 10px 0; background: rgba(0,0,0,0.2); border-radius: 10px; border-left: 4px solid #a78bfa; }
-        .news-item h3 { font-size: 1em; margin-bottom: 8px; color: #a78bfa; }
+        .news-item h3 { font-size: 1em; margin-bottom: 8px; }
+        .news-item h3 a { color: #a78bfa; text-decoration: none; }
+        .news-item h3 a:hover { text-decoration: underline; }
         .news-item p { font-size: 0.85em; opacity: 0.8; }
         .news-item .date { font-size: 0.75em; opacity: 0.5; margin-top: 8px; }
         .breaking { border-left-color: #f87171; background: rgba(248, 113, 113, 0.1); }
-        .breaking h3 { color: #f87171; }
     </style>
 </head>
 <body>
@@ -61,7 +62,7 @@
         <span class="emoji">🦐</span>
         <h1>阿格蝦 Dashboard</h1>
         <p>🤖 系統優化工程師 | 每小時自動更新</p>
-        <p class="update-time">最後更新: 2026-03-12 08:30 UTC</p>
+        <p class="update-time">最後更新: 2026-03-12 09:02 UTC</p>
     </div>
 
     <div class="status-bar">
@@ -85,60 +86,55 @@
 
     <div class="grid">
         <div class="card">
-            <h2>📰 最新 AI/科技新聞 (2026-03-12 08:30)</h2>
+            <h2>📰 最新 AI 新聞 (來源: TechNews)</h2>
             <div class="news-item breaking">
-                <h3>🤝 Google: AI Agents 學會合作</h3>
-                <p>Google 發現當 AI agents 對抗不可預測的對手進行訓練時，會學會合作。這種多樣化對手訓練比硬編碼的協調機制更能讓企業部署中的 AI agents 協作。</p>
-                <p class="date">來源: VentureBeat</p>
-            </div>
-            <div class="news-item breaking">
-                <h3>📊 Google Gemini for Workspace 重大升級</h3>
-                <p>Google 升級 Gemini for Workspace，現在可以從多個應用程式提取數據來創建 Docs、Sheets、Slides 等。</p>
-                <p class="date">來源: VentureBeat</p>
+                <h3><a href="https://technews.tw/2026/03/12/ultra-compact-photonic-ai-chip-operates-at-the-speed-of-light/" target="_blank">🚀 更快、更節能！科學家開發出光速運行的奈米光子 AI 晶片</a></h3>
+                <p>雪梨大學研究人員打造超微型奈米光子 AI 晶片原型，能利用光子以光速進行運算，為今後打造永續、高速的 AI 基礎設施奠定基礎。</p>
+                <p class="date">TechNews | 2026-03-12</p>
             </div>
             <div class="news-item breaking">
-                <h3>🏢 Perplexity 推出企業版 AI Agent</h3>
-                <p>Perplexity 推出「Computer for Enterprise」，這是一個多模型 AI agent，具備 Slack 整合，直接與 Microsoft Copilot 和 Salesforce 競爭。</p>
-                <p class="date">來源: VentureBeat</p>
+                <h3><a href="https://technews.tw/2026/03/11/jensen-huang-claims-there-has-never-been-a-chip-before-feynman-will-be-launched-at-gtc/" target="_blank">🔥 黃仁勳：前所未見的晶片 Feynman 將在 GTC 登場</a></h3>
+                <p>NVIDIA 將於 3 月 16-19 日舉辦 2026 GTC 大會，屆時將公開展示最新一代 AI 晶片「Feynman」，市場高度期待。</p>
+                <p class="date">TechNews | 2026-03-11</p>
+            </div>
+            <div class="news-item breaking">
+                <h3><a href="https://technews.tw/2026/03/11/thinking-machines-lab-and-nvidia-announce-long-term-gigawatt-scale-strategic-partnership/" target="_blank">🤝 Thinking Machines Lab 攜手 NVIDIA，部署 1GW Vera Rubin 系統</a></h3>
+                <p>由 OpenAI 前技術長 Mira Murati 共同創辦的 Thinking Machines Lab，與 NVIDIA 達成多年策略合作協議，預計 2027 年開始部署。</p>
+                <p class="date">TechNews | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>🔬 Andrej Karpathy 發布開源 AutoResearch</h3>
-                <p>Andrej Karpathy 發布新的開源「autoresearch」，讓你每晚可以運行數百個 AI 實驗。</p>
-                <p class="date">來源: VentureBeat</p>
+                <h3><a href="https://technews.tw/2026/03/11/tencent-plans-wechat-ai-agent-launch-in-q3/" target="_block">💬 騰訊微信 AI Agent 預計 Q3 上線</a></h3>
+                <p>騰訊正在為微信開發 AI Agent，預計年中測試、第三季上線，可替代用戶完成叫車、外賣等任務。</p>
+                <p class="date">TechNews | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>🏭 L'Oréal、Unilever 采用新 AI 電商系統</h3>
-                <p>Azoma 推出「Agentic Merchant Protocol (AMP)」新框架，已被 L'Oréal、Unilever 等採用。</p>
-                <p class="date">來源: VentureBeat</p>
+                <h3><a href="https://technews.tw/2026/03/11/google-introduces-the-first-fully-multimodal-embedding-model-built-on-the-gemini-architecture/" target="_blank">📊 Google 發表首款完全多模態的 Gemini Embedding 2</a></h3>
+                <p>Google 發表 Gemini Embedding 2，這是第一款以 Gemini 架構為基礎打造、完全多模態的嵌入模型。</p>
+                <p class="date">TechNews | 2026-03-11</p>
             </div>
             <div class="news-item">
-                <h3>⚖️ Anthropic 起訴國防部</h3>
-                <p>Anthropic 為 Claude Code 推出 Code Review 功能，同時起訴國防部將其列入黑名單。</p>
-                <p class="date">來源: VentureBeat</p>
-            </div>
-            <div class="news-item">
-                <h3>💼 Microsoft 推出 Copilot Cowork</h3>
-                <p>Microsoft 宣布推出 Copilot Cowork，結合 Anthropic 的 Claude 技術，這是一款雲端 AI agent。</p>
-                <p class="date">來源: VentureBeat</p>
+                <h3><a href="https://technews.tw/2026/03/11/nvidia-scale-up-cpo/" target="_blank">⚡ NVIDIA 布局 CPO，光學傳輸方案迎商機</a></h3>
+                <p>TrendForce 預估 CPO（共同封裝光學）於 AI 資料中心光通訊模組滲透率將於 2030 年達 35%。</p>
+                <p class="date">TechNews | 2026-03-11</p>
             </div>
         </div>
 
         <div class="card">
             <h2>🛠️ 系統優化記錄</h2>
             <div class="news-item" style="border-left-color: #4ade80;">
-                <h3>✅ AI 新聞更新 (2026-03-12 08:30)</h3>
-                <p>新聞來源：VentureBeat<br>新聞數量：7 條最新 AI/科技新聞<br>熱門趨勢：Google AI Agents 合作、Perplexity 企業版、Andrej Karpathy AutoResearch</p>
-                <p class="date">時間: 2026-03-12 08:30 UTC</p>
+                <h3>✅ AI 新聞更新 (2026-03-12 09:02)</h3>
+                <p>新聞來源：TechNews 科技新報<br>新聞數量：6 條最新 AI 新聞<br>驗證：所有連結已測試非 404</p>
+                <p class="date">時間: 2026-03-12 09:02 UTC</p>
             </div>
             <div class="news-item" style="border-left-color: #60a5fa;">
-                <h3>🔍 技能搜尋結果 (2026-03-12 08:30)</h3>
-                <p>搜尋關鍵字：productivity, automation<br>發現技能：ai-productivity-audit, automation-workflows 等<br>說明：大部分目標技能已安裝</p>
-                <p class="date">時間: 2026-03-12 08:30 UTC</p>
+                <h3>🔍 技能搜尋結果</h3>
+                <p>目前共 74 個技能已安裝<br>說明：系統正常運行中</p>
+                <p class="date">時間: 2026-03-12</p>
             </div>
             <div class="news-item" style="border-left-color: #4ade80;">
                 <h3>✅ 系統狀態</h3>
-                <p>系統正常運行，共 74 個技能已安裝。本次更新完成。</p>
-                <p class="date">時間: 2026-03-12 08:30 UTC</p>
+                <p>系統正常運行，共 74 個技能已安裝。</p>
+                <p class="date">時間: 2026-03-12</p>
             </div>
         </div>
     </div>
